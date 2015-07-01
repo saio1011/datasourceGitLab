@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE liferay-portlet-app PUBLIC "-//Liferay//DTD Portlet Application 6.2.0//EN" "http://www.liferay.com/dtd/liferay-portlet-app_6_2_0.dtd">
+
+<liferay-portlet-app>
+	<portlet>
+		<portlet-name>CommitHistory</portlet-name>
+		<scheduler-entry>
+			<scheduler-description>
+				This scheduler is used to fill the GitLab Database every day at noon
+			</scheduler-description>
+			<scheduler-event-listener-class>de.hska.wi.awp.datasource.gitlab.bean.loadData.GitLabScheduler</scheduler-event-listener-class>
+			<trigger>
+				<cron>
+					<cron-trigger-value>0 0 12 * * ?</cron-trigger-value>
+				</cron>
+			</trigger>
+		</scheduler-entry>
+		<requires-namespaced-parameters>false</requires-namespaced-parameters>
+		<header-portlet-css>/css/main.css</header-portlet-css>
+	</portlet>
+	<portlet>
+		<portlet-name>GitLabLoadData</portlet-name>
+		<requires-namespaced-parameters>false</requires-namespaced-parameters>
+		<header-portlet-css>/css/main.css</header-portlet-css>
+	</portlet>
+	<role-mapper>
+		<role-name>administrator</role-name>
+		<role-link>Administrator</role-link>
+	</role-mapper>
+	<role-mapper>
+		<role-name>guest</role-name>
+		<role-link>Guest</role-link>
+	</role-mapper>
+	<role-mapper>
+		<role-name>power-user</role-name>
+		<role-link>Power User</role-link>
+	</role-mapper>
+	<role-mapper>
+		<role-name>user</role-name>
+		<role-link>User</role-link>
+	</role-mapper>
+</liferay-portlet-app>

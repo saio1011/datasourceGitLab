@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+
+<f:view
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+>
+	<h:head />
+	<h:body>
+		<h:form>
+
+			<h:outputText
+				value="Die GitLab-Daten werden aktuell täglich um 0:00Uhr neu geladen. Falls Sie aktuellere Daten benötigen, können sie diese gerne manuell herunterladen."></h:outputText>
+		</h:form>
+		 <h:form>
+		 	<p:growl id="growl" />  
+            <h:commandButton value="GitLab Datenbank aktuallisieren" immediate="true" action="#{gitLabLoadDataModelBean.addGitLabMockData}" styleClass="ui-priority-primary"/>      
+          </h:form>
+	</h:body>
+</f:view>

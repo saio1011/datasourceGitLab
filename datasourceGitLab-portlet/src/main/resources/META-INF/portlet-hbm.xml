@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping default-lazy="false" auto-import="false">
+	<import class="de.hska.wi.awp.datasource.gitlab.model.Commit" />
+	<import class="de.hska.wi.awp.datasource.gitlab.model.Contributor" />
+	<class name="de.hska.wi.awp.datasource.gitlab.model.impl.CommitImpl" table="datasourceGitLab_Commit">
+		<cache usage="read-write" />
+		<id name="commitId" type="java.lang.String">
+			<generator class="assigned" />
+		</id>
+		<property name="authorName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="authorEmail" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="titleCommit" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="createdAt" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="projectName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="de.hska.wi.awp.datasource.gitlab.model.impl.ContributorImpl" table="datasourceGitLab_Contributor">
+		<cache usage="read-write" />
+		<id name="contributorId" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="name" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="email" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="commits" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="locAdditions" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="locDeletions" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="projectName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+</hibernate-mapping>

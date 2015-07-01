@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+
+<portlet-app xmlns="http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd" version="2.0">
+	<portlet>
+		<portlet-name>CommitHistory</portlet-name>
+		<display-name>CommitHistory</display-name>
+		<portlet-class>
+			javax.portlet.faces.GenericFacesPortlet
+		</portlet-class>
+		<init-param>
+			<name>javax.portlet.faces.bridgeEventHandler</name>
+			<value>de.hska.wi.awp.datasource.gitlab.event.CommitHistoryEventHandler</value>
+		</init-param>
+		<init-param>
+			<name>javax.portlet.faces.defaultViewId.view</name>
+			<value>/views/commitHistory/commitHistoryViewMode.xhtml</value>
+		</init-param>
+		<expiration-cache>0</expiration-cache>
+		<supports>
+			<mime-type>text/html</mime-type>
+			<portlet-mode>view</portlet-mode>
+		</supports>
+		<portlet-info>
+			<title>GitLab - Commit History (SP)</title>
+			<short-title>Commit History</short-title>
+			<keywords></keywords>
+		</portlet-info>
+		<security-role-ref>
+			<role-name>administrator</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>guest</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>power-user</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>user</role-name>
+		</security-role-ref>
+		<supported-processing-event>
+    		<qname xmlns:x="http://liferay.com/events">x:ipc.studentSelected</qname>
+		</supported-processing-event>
+		<supported-processing-event>
+    		<qname xmlns:x="http://liferay.com/events">x:ipc.projectSelected</qname>
+		</supported-processing-event>
+	</portlet>
+	<portlet>
+		<portlet-name>GitLabLoadData</portlet-name>
+		<display-name>GitLabLoadData</display-name>
+		<portlet-class>javax.portlet.faces.GenericFacesPortlet</portlet-class>
+		<init-param>
+			<name>javax.portlet.faces.defaultViewId.view</name>
+			<value>/views/loadData/loadData.xhtml</value>
+		</init-param>
+		<expiration-cache>0</expiration-cache>
+		<supports>
+			<mime-type>text/html</mime-type>
+		</supports>
+		<portlet-info>
+			<title>GitLab - Load Data</title>
+			<short-title>Load Data GitLab</short-title>
+			<keywords>LoadDataGitLab</keywords>
+		</portlet-info>
+		<security-role-ref>
+			<role-name>administrator</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>guest</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>power-user</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>user</role-name>
+		</security-role-ref>
+	</portlet>
+	<event-definition>
+    	<qname xmlns:x="http://liferay.com/events">x:ipc.studentSelected</qname>
+    	<value-type>java.lang.String</value-type>
+    </event-definition>
+    <event-definition>
+    	<qname xmlns:x="http://liferay.com/events">x:ipc.projectSelected</qname>
+    	<value-type>java.lang.String</value-type>
+    </event-definition>
+</portlet-app>

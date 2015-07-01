@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+
+<f:view
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+>
+	<h:head />
+	<h:body>
+	<!-- <h:form rendered="#{empty studentCommitHistoryModelBean.projecthskaId}">
+			<h:outputText value="Der Student ist kein Commiter in diesem Projekt" />
+
+		</h:form> -->
+	<p:panel header="General Data">
+		<h:panelGrid id="grid" columns="4" cellpadding="5" >
+			<h:outputText value="Anzahl Contributors:" />
+			<h:outputText value="#{studentCommitHistoryModelBean.numberOfContributors}"/>
+			<h:outputText value="" />
+			<h:outputText value="" />
+			
+			
+			<h:outputText value="Anzahl Total LOC:" />
+			<h:outputText value="#{studentCommitHistoryModelBean.numberOfTotalAdditions}" />
+			<h:outputText value="Individuelle LOC:" />
+			<h:outputText value="#{studentCommitHistoryModelBean.locAdditions}" />
+			
+			<h:outputText value="Anzahl Total gelöschte LOC:" />
+			<h:outputText value="#{studentCommitHistoryModelBean.numberOfTotalDeletions}" />
+			<h:outputText value="Individuelle gelösche LOC:" />
+			<h:outputText value="#{studentCommitHistoryModelBean.locDeletions}" />
+			
+			<h:outputText value="Anzahl Total Commits:" />
+			<h:outputText value="#{studentCommitHistoryModelBean.numberOfTotalCommits}"/>
+			<h:outputText value="Individuelle Commits:" />
+			<h:outputText value="#{studentCommitHistoryModelBean.numberOfCommits}"/>
+		</h:panelGrid>
+	</p:panel>
+			
+	<h:form>
+		<h:outputText value="#{studentCommitHistoryModelBean.noContributor}"/>
+ 		<p:chart type="line" model="#{studentCommitHistoryModelBean.lineCommitsHistory}" style="height:300px;" responsive="true"/>
+ 	</h:form>
+		
+	</h:body>
+</f:view>

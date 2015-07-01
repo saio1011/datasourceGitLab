@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.0" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm http://java.sun.com/xml/ns/persistence/orm_1_0.xsd">
+	<persistence-unit-metadata>
+		<xml-mapping-metadata-complete/>
+		<persistence-unit-defaults>
+			<access>PROPERTY</access>
+		</persistence-unit-defaults>
+	</persistence-unit-metadata>
+	<mapped-superclass class="de.hska.wi.awp.datasource.gitlab.model.impl.CommitModelImpl">
+		<attributes>
+			<id name="commitId" />
+			<basic name="authorName" />
+			<basic name="authorEmail" />
+			<basic name="titleCommit" />
+			<basic name="createdAt" />
+			<basic name="projectName" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="de.hska.wi.awp.datasource.gitlab.model.impl.ContributorModelImpl">
+		<attributes>
+			<id name="contributorId" />
+			<basic name="name" />
+			<basic name="email" />
+			<basic name="commits" />
+			<basic name="locAdditions" />
+			<basic name="locDeletions" />
+			<basic name="projectName" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<entity class="de.hska.wi.awp.datasource.gitlab.model.impl.CommitImpl" name="Commit">
+		<table name="datasourceGitLab_Commit" />
+		<attributes />
+	</entity>
+	<entity class="de.hska.wi.awp.datasource.gitlab.model.impl.ContributorImpl" name="Contributor">
+		<table name="datasourceGitLab_Contributor" />
+		<attributes />
+	</entity>
+</entity-mappings>

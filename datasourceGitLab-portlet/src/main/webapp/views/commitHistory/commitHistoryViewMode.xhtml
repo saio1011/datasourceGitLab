@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+
+<f:view
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+>
+	<h:head />
+	<h:body>
+		<h:form rendered="#{empty studentCommitHistoryModelBean.studenthskaId and empty projectCommitHistoryModelBean.projectId}">
+			<h:outputText value="Bitte wählen sie einen Studenten oder eine Gruppe" />
+
+		</h:form>
+		
+		<h:panelGroup id="wrapperPanel">
+    		<h:panelGroup id="student" rendered="#{not empty studentCommitHistoryModelBean.studenthskaId}">
+       			<ui:include src="commitHistoryStudent.xhtml" />
+   			</h:panelGroup>
+   			<h:panelGroup id="project" rendered="#{not empty projectCommitHistoryModelBean.projectId}">
+       			<ui:include src="commitHistoryProject.xhtml" />
+   			</h:panelGroup>
+		</h:panelGroup>
+	</h:body>
+</f:view>

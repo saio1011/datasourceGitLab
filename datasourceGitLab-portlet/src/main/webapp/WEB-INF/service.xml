@@ -1,0 +1,32 @@
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 6.2.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_6_2_0.dtd">
+
+<service-builder package-path="de.hska.wi.awp.datasource.gitlab">
+	<namespace>datasourceGitLab</namespace>
+	<entity name="Contributor" local-service="true">
+        <column name="contributorId" primary="true" type="long"></column>
+        <column name="name" type="String"></column>
+        <column name="email" type="String"></column>
+        <column name="commits" type="int"></column>
+        <column name="locAdditions" type="int"></column>
+        <column name="locDeletions" type="int"></column>
+        <column name="projectName" type="String"></column>
+        <finder name="Name" return-type="Contributor">
+        	<finder-column name="name"/>
+        </finder>
+    </entity>
+    <entity name="Commit" local-service="true">
+        <column name="commitId" type="String" primary="true"></column>
+        <column name="authorName" type="String"></column>
+        <column name="authorEmail" type="String"></column>
+        <column name="titleCommit" type="String"></column>
+        <column name="createdAt" type="String"></column>
+        <column name="projectName" type="String"></column>
+        <finder name="AuthorNameAndProjectName" return-type="Collection">
+        	<finder-column name="authorName" />
+        	<finder-column name="projectName" />
+        </finder>
+        <finder name="ProjectName" return-type="Collection">
+        	<finder-column name="projectName" />
+        </finder>
+    </entity>
+</service-builder>
