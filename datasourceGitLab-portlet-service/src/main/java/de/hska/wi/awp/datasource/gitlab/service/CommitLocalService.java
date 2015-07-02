@@ -306,4 +306,13 @@ public interface CommitLocalService extends BaseLocalService,
     @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
     public java.util.List<de.hska.wi.awp.datasource.gitlab.model.Commit> getAllCommitsForStudentNameAndProjectName(
         java.lang.String studentName, java.lang.String projectName);
+
+    /**
+    * @author Mihai Sava
+    * @param projectName
+    * @return List<Commit> with all commits for this project
+    */
+    @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+    public java.util.List<de.hska.wi.awp.datasource.gitlab.model.Commit> getAllCommitsForThisProject(
+        java.lang.String projectName);
 }

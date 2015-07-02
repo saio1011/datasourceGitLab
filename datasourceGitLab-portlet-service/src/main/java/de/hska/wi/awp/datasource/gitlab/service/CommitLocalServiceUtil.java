@@ -339,6 +339,16 @@ public class CommitLocalServiceUtil {
             projectName);
     }
 
+    /**
+    * @author Mihai Sava
+    * @param projectName
+    * @return List<Commit> with all commits for this project
+    */
+    public static java.util.List<de.hska.wi.awp.datasource.gitlab.model.Commit> getAllCommitsForThisProject(
+        java.lang.String projectName) {
+        return getService().getAllCommitsForThisProject(projectName);
+    }
+
     public static void clearService() {
         _service = null;
     }

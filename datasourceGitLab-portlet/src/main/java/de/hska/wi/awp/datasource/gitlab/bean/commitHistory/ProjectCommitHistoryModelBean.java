@@ -110,13 +110,7 @@ public class ProjectCommitHistoryModelBean implements Serializable{
     	Map<String, Number> circle1 = new LinkedHashMap<String, Number>();
     	
     	//get all Commits from this project
-    	List<Commit> allCommitsForThisProject = null;
-    	try {
-    		allCommitsForThisProject = CommitUtil.findByProjectName(projectName);
-		} catch (SystemException e) {
-			log.error("CommitUtil.findByProjectName ist fehlgeschlagen");
-			e.printStackTrace();
-		}
+    	List<Commit> allCommitsForThisProject = CommitLocalServiceUtil.getAllCommitsForThisProject(projectName);
     	
     	//get all Contributors for all projects
     	List<Contributor> allContributors = null;

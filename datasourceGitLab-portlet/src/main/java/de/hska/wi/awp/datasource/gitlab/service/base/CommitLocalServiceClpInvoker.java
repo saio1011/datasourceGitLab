@@ -57,6 +57,8 @@ public class CommitLocalServiceClpInvoker {
     private String[] _methodParameterTypes50;
     private String _methodName51;
     private String[] _methodParameterTypes51;
+    private String _methodName52;
+    private String[] _methodParameterTypes52;
 
     public CommitLocalServiceClpInvoker() {
         _methodName0 = "addCommit";
@@ -174,6 +176,10 @@ public class CommitLocalServiceClpInvoker {
         _methodParameterTypes51 = new String[] {
                 "java.lang.String", "java.lang.String"
             };
+
+        _methodName52 = "getAllCommitsForThisProject";
+
+        _methodParameterTypes52 = new String[] { "java.lang.String" };
     }
 
     public Object invokeMethod(String name, String[] parameterTypes,
@@ -310,6 +316,11 @@ public class CommitLocalServiceClpInvoker {
                 Arrays.deepEquals(_methodParameterTypes51, parameterTypes)) {
             return CommitLocalServiceUtil.getAllCommitsForStudentNameAndProjectName((java.lang.String) arguments[0],
                 (java.lang.String) arguments[1]);
+        }
+
+        if (_methodName52.equals(name) &&
+                Arrays.deepEquals(_methodParameterTypes52, parameterTypes)) {
+            return CommitLocalServiceUtil.getAllCommitsForThisProject((java.lang.String) arguments[0]);
         }
 
         throw new UnsupportedOperationException();

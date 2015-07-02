@@ -314,8 +314,28 @@ private static Log log = LogFactoryUtil.getLog(CommitLocalServiceImpl.class);
 			e.printStackTrace();
 		}
 		
-		log.debug("BEGIN: getAllCommitsForStudentNameAndProjectName");
+		log.debug("END: getAllCommitsForStudentNameAndProjectName");
 		return allCommitsFromThisStudent;
 	}
 	
+	/**
+	 * @author Mihai Sava
+	 * 
+	 * @param projectName
+	 * @return List<Commit> with all commits for this project
+	 */
+	public List<Commit> getAllCommitsForThisProject(String projectName){
+		log.debug("BEGIN: getAllCommitsForThisProject");
+		
+    	List<Commit> allCommitsForThisProject = null;
+    	try {
+    		allCommitsForThisProject = CommitUtil.findByProjectName(projectName);
+		} catch (SystemException e) {
+			log.error("CommitUtil.findByProjectName ist fehlgeschlagen");
+			e.printStackTrace();
+		}
+    	
+    	log.debug("BEGIN: getAllCommitsForThisProject");
+    	return allCommitsForThisProject;
+	}	
 }

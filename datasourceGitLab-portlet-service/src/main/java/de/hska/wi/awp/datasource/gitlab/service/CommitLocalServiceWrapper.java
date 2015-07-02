@@ -354,6 +354,17 @@ public class CommitLocalServiceWrapper implements CommitLocalService,
     }
 
     /**
+    * @author Mihai Sava
+    * @param projectName
+    * @return List<Commit> with all commits for this project
+    */
+    @Override
+    public java.util.List<de.hska.wi.awp.datasource.gitlab.model.Commit> getAllCommitsForThisProject(
+        java.lang.String projectName) {
+        return _commitLocalService.getAllCommitsForThisProject(projectName);
+    }
+
+    /**
      * @deprecated As of 6.1.0, replaced by {@link #getWrappedService}
      */
     public CommitLocalService getWrappedCommitLocalService() {

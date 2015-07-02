@@ -56,6 +56,8 @@ public class CommitLocalServiceClp implements CommitLocalService {
     private String[] _methodParameterTypes23;
     private String _methodName24;
     private String[] _methodParameterTypes24;
+    private String _methodName25;
+    private String[] _methodParameterTypes25;
 
     public CommitLocalServiceClp(InvokableLocalService invokableLocalService) {
         _invokableLocalService = invokableLocalService;
@@ -175,6 +177,10 @@ public class CommitLocalServiceClp implements CommitLocalService {
         _methodParameterTypes24 = new String[] {
                 "java.lang.String", "java.lang.String"
             };
+
+        _methodName25 = "getAllCommitsForThisProject";
+
+        _methodParameterTypes25 = new String[] { "java.lang.String" };
     }
 
     @Override
@@ -822,6 +828,29 @@ public class CommitLocalServiceClp implements CommitLocalService {
                         
                     ClpSerializer.translateInput(projectName)
                     });
+        } catch (Throwable t) {
+            t = ClpSerializer.translateThrowable(t);
+
+            if (t instanceof RuntimeException) {
+                throw (RuntimeException) t;
+            } else {
+                throw new RuntimeException(t.getClass().getName() +
+                    " is not a valid exception");
+            }
+        }
+
+        return (java.util.List<de.hska.wi.awp.datasource.gitlab.model.Commit>) ClpSerializer.translateOutput(returnObj);
+    }
+
+    @Override
+    public java.util.List<de.hska.wi.awp.datasource.gitlab.model.Commit> getAllCommitsForThisProject(
+        java.lang.String projectName) {
+        Object returnObj = null;
+
+        try {
+            returnObj = _invokableLocalService.invokeMethod(_methodName25,
+                    _methodParameterTypes25,
+                    new Object[] { ClpSerializer.translateInput(projectName) });
         } catch (Throwable t) {
             t = ClpSerializer.translateThrowable(t);
 
