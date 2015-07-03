@@ -72,7 +72,7 @@ public class ProjectCommitHistoryModelBean implements Serializable{
 		
 		commitDistributionModel = initCommitDistributionModel(projectName);
 		commitDistributionModel.setTitle("Verteilung - Commits pro Student");
-		commitDistributionModel.setLegendPosition("e");
+		commitDistributionModel.setLegendPosition("w");
 		commitDistributionModel.setSliceMargin(5);
 		commitDistributionModel.setShowDataLabels(true);
 		commitDistributionModel.setDataFormat("value");

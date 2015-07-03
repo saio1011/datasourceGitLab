@@ -137,7 +137,7 @@ public class StudentCommitHistoryModelBean implements Serializable{
 		
 		lineCommitsHistory = initCommitHistoryModel(studentName, projectId);
 		lineCommitsHistory.setTitle("Commit History");
-		lineCommitsHistory.setLegendPosition("e");
+		lineCommitsHistory.setLegendPosition("w");
 		lineCommitsHistory.setShowPointLabels(true);
 		lineCommitsHistory.getAxes().put(AxisType.X, new CategoryAxis("Zeitraum"));
         Axis yAxis = lineCommitsHistory.getAxis(AxisType.Y);
@@ -162,11 +162,11 @@ public class StudentCommitHistoryModelBean implements Serializable{
    	
    	List<Commit> allCommitsFromThisStudent = CommitLocalServiceUtil.getAllCommitsForStudentNameAndProjectName(studentName, projectName);
    	if(allCommitsFromThisStudent == null){
-   		this.numberOfCommits = 0;
+//   		this.numberOfCommits = 0;
    		this.studenthskaId = null;
    	}
    	//set number of individual commits
-   	this.numberOfCommits = allCommitsFromThisStudent.size();
+//   	this.numberOfCommits = allCommitsFromThisStudent.size();
    	
    	// get dates from commits 
    		//we take the first 8 characters from the date field as string
@@ -274,16 +274,16 @@ public class StudentCommitHistoryModelBean implements Serializable{
     	}
     	
     	if(isCurrentUser){
-//    		int nrOfCommits = 0;
+    		int nrOfCommits = 0;
     		int nrlocAdditions = 0;
     		int nrlocDeletions = 0;
     		for(Contributor currentUsr : currentUser){
-//    			nrOfCommits += currentUsr.getCommits();
+    			nrOfCommits += currentUsr.getCommits();
     			nrlocDeletions += currentUsr.getLocDeletions();
     			nrlocAdditions += currentUsr.getLocAdditions();
     		}
 
-//    		numberOfCommits = nrOfCommits;
+    		numberOfCommits = nrOfCommits;
     		locAdditions = nrlocAdditions;
     		locDeletions = nrlocDeletions;
     		

@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" default-destroy-method="destroy" default-init-method="afterPropertiesSet" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	<bean id="de.hska.wi.awp.datasource.gitlab.service.CommitLocalService" class="de.hska.wi.awp.datasource.gitlab.service.impl.CommitLocalServiceImpl" />
+	<bean id="de.hska.wi.awp.datasource.gitlab.service.CommitService" class="de.hska.wi.awp.datasource.gitlab.service.impl.CommitServiceImpl" />
+	<bean id="de.hska.wi.awp.datasource.gitlab.service.persistence.CommitPersistence" class="de.hska.wi.awp.datasource.gitlab.service.persistence.CommitPersistenceImpl" parent="basePersistence" />
+	<bean id="de.hska.wi.awp.datasource.gitlab.service.ContributorLocalService" class="de.hska.wi.awp.datasource.gitlab.service.impl.ContributorLocalServiceImpl" />
+	<bean id="de.hska.wi.awp.datasource.gitlab.service.ContributorService" class="de.hska.wi.awp.datasource.gitlab.service.impl.ContributorServiceImpl" />
+	<bean id="de.hska.wi.awp.datasource.gitlab.service.persistence.ContributorPersistence" class="de.hska.wi.awp.datasource.gitlab.service.persistence.ContributorPersistenceImpl" parent="basePersistence" />
+</beans>

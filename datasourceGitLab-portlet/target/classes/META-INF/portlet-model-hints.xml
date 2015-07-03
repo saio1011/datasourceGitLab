@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="de.hska.wi.awp.datasource.gitlab.model.Commit">
+		<field name="commitId" type="String" />
+		<field name="authorName" type="String" />
+		<field name="authorEmail" type="String" />
+		<field name="titleCommit" type="String" />
+		<field name="createdAt" type="String" />
+		<field name="projectName" type="String" />
+	</model>
+	<model name="de.hska.wi.awp.datasource.gitlab.model.Contributor">
+		<field name="contributorId" type="long" />
+		<field name="name" type="String" />
+		<field name="email" type="String" />
+		<field name="commits" type="int" />
+		<field name="locAdditions" type="int" />
+		<field name="locDeletions" type="int" />
+		<field name="projectName" type="String" />
+	</model>
+</model-hints>
